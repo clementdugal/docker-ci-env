@@ -59,9 +59,9 @@ RUN apt-get update && apt-get install -y \
     python-virtualenv
 
 # Docker install
-RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
-RUN apt-get update && apt-get install -y gitlab-ce
-    
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+RUN apt-get update && apt-get install -y gitlab-ce    
 
 RUN composer global require hirak/prestissimo
 
