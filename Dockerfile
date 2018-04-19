@@ -27,7 +27,8 @@ RUN apt-get update && apt-get install -y \
     zip \
     ruby-compass \
     apt-transport-https \
-    gnupg2
+    gnupg2 \
+    sudo
 
 # Node install
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
