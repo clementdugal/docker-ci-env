@@ -8,6 +8,7 @@ RUN locale-gen fr_FR.UTF-8
 ENV LANG fr_FR.UTF-8
 ENV LANGUAGE fr_FR:fr
 ENV LC_ALL fr_FR.UTF-8
+ENV DEBIAN_FRONTEND noninteractive
 
 # Tools install
 RUN apt-get update && apt-get install -y \
@@ -62,11 +63,14 @@ RUN apt-get update && apt-get install -y \
 # Docker install
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-#RUN apt-get update && apt-get install -y docker-ce    
+RUN apt-get update && apt-get install -y docker-ce
+
+# Install the magic wrapper for Docker
+ADD ./wrapdocker /usr/local/bin/wrapdocker
+RUN chmod +x /usr/local/bin/wrapdocker
 
 RUN composer global require hirak/prestissimo
 
-ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get install -y mysql-server mysql-client libmysqlclient-dev --no-install-recommends && \
     apt-get clean && \
