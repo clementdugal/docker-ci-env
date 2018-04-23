@@ -12,7 +12,7 @@ RUN apt-get update -qq && apt-get install -qqy \
 RUN curl -sSL https://get.docker.com/ | sh && \
     apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y docker-engine && \
+    apt-get install -y docker-ce && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
