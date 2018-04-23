@@ -1,4 +1,5 @@
 FROM ubuntu:16.04
+
 MAINTAINER clement.dugal@gmail.com
 
 RUN apt-get update -qq && apt-get install -qqy \
