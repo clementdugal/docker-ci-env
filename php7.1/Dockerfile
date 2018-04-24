@@ -30,6 +30,12 @@ RUN apt-get update -qq && apt-get install -qqy \
     sudo \
     dmsetup
 
+RUN locale-gen en_US.UTF-8
+RUN locale-gen fr_FR.UTF-8
+ENV LANG fr_FR.UTF-8
+ENV LANGUAGE fr_FR:fr
+ENV LC_ALL fr_FR.UTF-8
+
 # Install Docker from Docker Inc. repositories.
 RUN curl -sSL https://get.docker.com/ | sh && \
     apt-get update && \
