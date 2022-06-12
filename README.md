@@ -1,11 +1,12 @@
 # CI environment for building projects with Docker
 
 Available images:
-- `clementdugal/ci-env:php7.0`
-- `clementdugal/ci-env:php7.1`
+- `clementdugal/ci-env:php7.0` (deprecated)
+- `clementdugal/ci-env:php7.1` (depreacted)
+- `clementdugal/ci-env:php7.4`
 
 Included packages:
-- docker (docker in docker)
+- docker (for docker in docker)
 - nodejs
 - php
 - composer

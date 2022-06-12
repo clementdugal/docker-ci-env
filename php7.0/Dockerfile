@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-MAINTAINER clement.dugal@gmail.com
+MAINTAINER clement@dugal.net
 
 RUN apt-get update -qq && apt-get install -qqy \
     apt-transport-https \
